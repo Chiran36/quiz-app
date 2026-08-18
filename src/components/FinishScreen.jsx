@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function FinishScreen({ points, maxPossiblePoints,highScore }) {
+export default function FinishScreen({ points, maxPossiblePoints, highScore,dispatch }) {
   const percentage = (points / maxPossiblePoints) * 100;
 
   let emoji;
@@ -18,6 +18,14 @@ export default function FinishScreen({ points, maxPossiblePoints,highScore }) {
         {Math.ceil(percentage)})%
       </p>
       <p className="highscore">{`(Highscore: ${highScore}points)`}</p>
+      <button
+        className="btn btn-ui"
+        onClick={() => {
+          dispatch({ type: "restart" });
+        }}
+      >
+       Restart Quiz
+      </button>
     </>
   );
 }
